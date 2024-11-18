@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Stock Price Tracker with Caching and Dynamic UI
 
-## Getting Started
+## Overview
 
-First, run the development server:
+The **Stock Price Tracker** is a web application built using **Next.js 15**, **Emotion**, and **Material-UI (MUI)**. It allows users to search for stock prices and view real-time financial data with a dynamic, interactive UI. The project demonstrates advanced features like caching for optimized performance and Emotion for animations and styling.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Real-time Stock Price Tracking**: Fetch current stock data using the [Stock Price API](https://api.api-ninjas.com/).
+- **Caching with Next.js 15**: Implements server-side caching with `force-cache` and client-side caching using SWR for periodic updates.
+- **Dynamic UI**: 
+  - Interactive card-flipping animation to display stock data.
+  - Pulsing animated button using MUI and Emotion.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Technologies Used
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Next.js 15**: For server-side rendering and caching.
+- **Emotion**: For CSS-in-JS dynamic styling and animations.
+- **Material-UI (MUI)**: Pre-built components with custom styling.
+- **SWR**: For client-side data fetching and caching.
+- **Stock Price API**: To fetch real-time stock price data.
 
-## Learn More
+## Installation and Setup
 
-To learn more about Next.js, take a look at the following resources:
+Follow the steps below to set up and run the project locally.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Prerequisites
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Node.js**: Version 16 or above.
+- **NPM**: For managing dependencies.
 
-## Deploy on Vercel
+### Steps to Launch
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Install Dependencies**:  
+   Run the following command to install all project dependencies:  
+   ```bash
+   npm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. **Install Additional Packages**:  
+   The project requires the following additional packages. Install them with these commands:
+
+   - **Emotion (CSS-in-JS)**:
+     ```bash
+     npm install @emotion/react @emotion/styled
+     ```
+
+   - **Material-UI (MUI)**:
+     ```bash
+     npm install @mui/material @emotion/react @emotion/styled
+     ```
+
+   - **SWR (Data Fetching)**:
+     ```bash
+     npm install swr
+     ```
+
+3. **Run the Development Server**:  
+   Start the development server with:  
+   ```bash
+   npm run dev
+   ```
+
+   The application will be available at `http://localhost:3000`.
+
+4. **Test the Application**:  
+   - Open your browser and navigate to `http://localhost:3000`.
+   - Enter a stock ticker (e.g., AAPL, TSLA) and click **Check Stock**.
+   - View the dynamic, flipping card with real-time stock data.
