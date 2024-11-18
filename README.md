@@ -6,7 +6,7 @@ The **Stock Price Tracker** is a web application built using **Next.js 15**, **E
 
 ## Features
 
-- **Real-time Stock Price Tracking**: Fetch current stock data using the [Stock Price API](https://api.api-ninjas.com/).
+- **Real-time Stock Price Tracking**: Fetch current stock data using the [Stock Price API](https://api-ninjas.com/api/stockprice).
 - **Caching with Next.js 15**: Implements server-side caching with `force-cache` and client-side caching using SWR for periodic updates.
 - **Dynamic UI**: 
   - Interactive card-flipping animation to display stock data.
