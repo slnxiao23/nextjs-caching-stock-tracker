@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic"; // Enable static caching with revalidation
+
 const API_KEY = process.env.API_NINJAS_KEY;
 
 export async function GET(request: Request): Promise<NextResponse> {
@@ -15,6 +17,7 @@ export async function GET(request: Request): Promise<NextResponse> {
       headers: {
         "X-Api-Key": API_KEY || "",
       },
+      next: { revalidate: 60 }, // Revalidate cached data every 60 seconds
     });
 
     if (!res.ok) {
@@ -23,6 +26,7 @@ export async function GET(request: Request): Promise<NextResponse> {
     }
 
     const data = await res.json();
+    console.log("API Response:", data); // Debugging the API response
 
     if (!data || Object.keys(data).length === 0) {
       return NextResponse.json({ error: "No data found for the provided symbol" }, { status: 404 });
@@ -34,7 +38,7 @@ export async function GET(request: Request): Promise<NextResponse> {
       price: data.price,
       exchange: data.exchange,
       currency: data.currency,
-      updated: new Date(data.updated * 1000).toLocaleString(), // Convert UNIX timestamp
+      updated: new Date(data.updated * 1000).toLocaleString(),
     };
 
     return NextResponse.json(formattedData);
